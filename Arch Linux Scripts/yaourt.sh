@@ -1,6 +1,6 @@
 #Gets and installs yaourt for new system or when updating yaourt
 echo "Installing required packages";
-sudo pacman -S curl yajl diffutils gettext;
+sudo pacman -S wget curl yajl diffutils gettext;
 cd /tmp;
 wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz;
 wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz;
@@ -18,4 +18,5 @@ makepkg;
 sudo pacman -U yaourt-*.pkg.tar.xz;
 cd ..;
 rm -rf yaourt;
+cd ~/
 echo "Installation complete";
