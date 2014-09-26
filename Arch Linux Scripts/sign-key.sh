@@ -1,21 +1,35 @@
 #!/bin/zsh
-#To Do:
-#Error handling with keys in pacman-key
-#
+exit_code=0
 if [ $(id -u) != "0" ]; then
     echo "You must be the superuser to run this script"
-    exit 1
+	exit_code=1
+	exit $exit_code
 elif [ $# -ge "1" ]; then
 	while [ $# != "0" ]; do
-		pacman-key -r $1
-		pacman-key -f $1
-		pacman-key --lsign-key $1
+		
+		if pacman-key -r $1 && pacman-key -f $1; then
+			pacman-key --lsign-key $1
+		else
+			if [ $# -gt "1" ]; then
+				echo "Invalid key entered, moving on to next key"	
+				exit_code=1
+			else
+				echo "Invalid key, please enter a valid key"
+				exit_code=1
+				exit $exit_code
+			fi
+		fi
+
 		if [ $# -gt "1" ]; then
 			shift
 		else
-			exit 0
+			exit $exit_code
 		fi
 	done
 fi
 echo "Insert keys to sign"
-exit 1
+exit_code=0
+exit $exit_code
+
+#To Do:
+#Compact code further if possible. Works as is
