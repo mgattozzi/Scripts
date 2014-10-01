@@ -83,3 +83,4 @@ yaourt -S $(cat packages) $aurprograms
 sudo pacman -Rns $unwantedprograms
 
 #Regen grub config
+grub-mkconfig -o /boot/grub/grub.cfg
