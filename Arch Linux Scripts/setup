@@ -1,34 +1,85 @@
 #!/bin/zsh
-#Script Settings
-shell="zsh"
-declare github-respositories[4]=(mgattozzi.github.io, awesome-config, dotfiles, Scripts)
-declare bitbucket-repositories[3]=()
+# Script Settings
+user="michael"
+github-respositories=(mgattozzi.github.io awesome-config dotfiles Scripts)
+bitbucket-repositories=(homework config-files)
+aurprograms=(spotify mopidy-spotify)
+unwantedprograms=(bash nano)
 #Functions
 function github(){
-	if [ cd ~/ ] then;
-		mkdir Github && cd Github
-		for i in "${github-repositories[@]}"
-		do
-			git clone git@github.com:mgattozzi/$i.git
-		done
-		cd Scripts/Arch\ Linux\ Scripts
-		sh yaourt #Install yaourt
-		sudo sign-key 5EE46C4C #Sign repo-ck key
+	#Sets up Github Repositories and sets them up for their intended usage
+	#Initialize Repositories
+	cd /home/$user		
+	mkdir Github && cd Github
+	for i in "${github-repositories[@]}"
+	do
+		git clone git@github.com:mgattozzi/$i.git
+	done
+	#Installs Yaourt and signs repo-ck key
+	cd /home/$user/Github/Scripts/Arch\ Linux\ Scripts
+	sh yaourt
+	sudo sign-key 5EE46C4C
+	#Setup Dotfiles
+	cd /home/$user/Github/dotfiles
+	sh link
+	#Setup Awesome
+	if [ "pacman -Q awesome" ]; then
+		cd /home/$user/.config
+		rm -rf awesome
+		ln -s /home/$user/Github/awesome-config awesome
+	else
+		cd /home/$user
+		if [ "ls -a | grep .config" ]; then 
+			ln -s /home/$user/Github/awesome-config .config/awesome
+		else
+			mkdir .config
+			ln -s /home/$user/Github/awesome-config awesome
+		fi
 	fi
 }
-#Setup all needed programs
-sudo pacman -S multilib-devel git zsh libreoffice xorg-server xorg-xbacklight steam ruby wget curl ttf-inconsolata rxvt-unicode vim
-#Home Directory
+
+function bitbucket(){
+	#Create repositories
+	cd /home/$user
+	mkdir Bitbucket && cd Bitbucket
+	for i in "${bitbucket-repositories[@]}"
+	do
+		git clone git@bitbucket.org:mgattozzi/$i.git
+	done
+
+	#Gene Guru
+	git clone git@bitbucket.org:gene-guru/geneguru_site.git
+
+	#Setup Config Files
+	cd /home/$user/Bitbucket/config-files
+	sudo sh link
+
+}
+#Script Start
+
+#Checking for Script Dependencies
+if [ "pacman -Q sudo zsh git ssh" != true ]; then
+	echo "Installing needed programs. Please insert root password"
+	su -c "pacman -S sudo zsh git"
+	echo "Place yourself in the sudoers file"
+	su -c "visudo"
+	echo "Please install ssh keys for repositories. The script will abort now"
+	exit 1
+fi
+
+#Github and Bitbucket setup
 github
+bitbucket
 
-#Install install AUR programs
-yaourt -S spotify
-
-#Install configuration files
-
-#Install linux-ck and blackarch repository
+#Install Blackarch repository
 curl -s http://blackarch.org/strap.sh | sudo sh
-sudo pacman -S blackarch linux-ck-ivybridge
-sudo pacman -Syu
+
+#Install all needed programs
+cd /home/$user/Github/Scripts/Arch\ Linux\ Scripts\
+echo "Installing packages please wait"
+yaourt -S $(cat packages) $aurprograms
 
 #Remove unwanted files/programs
+sudo pacman -Rns $unwantedprograms
+
+#Regen grub config
