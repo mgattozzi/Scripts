@@ -89,5 +89,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl enable pia-tools@Switzerland.service
 sudo systemctl enable preload
 sudo systemctl enable mopidy
+sudo touch /etc/iptables/iptables.rules
 sudo systemctl enable iptables
 sudo systemctl enable cronie
