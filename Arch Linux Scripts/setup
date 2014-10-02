@@ -3,7 +3,7 @@
 user="michael"
 github-respositories=(mgattozzi.github.io awesome-config dotfiles Scripts)
 bitbucket-repositories=(homework config-files)
-aurprograms=(spotify mopidy-spotify)
+aurprograms=(spotify mopidy-spotify pia-tools)
 unwantedprograms=(bash nano)
 #Functions
 function github(){
@@ -84,3 +84,10 @@ sudo pacman -Rns $unwantedprograms
 
 #Regen grub config
 grub-mkconfig -o /boot/grub/grub.cfg
+
+#Systemctl Commands
+sudo systemctl enable pia-tools@Switzerland.service
+sudo systemctl enable preload
+sudo systemctl enable mopidy
+sudo systemctl enable iptables
+sudo systemctl enable cronie
