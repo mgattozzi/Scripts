@@ -1,0 +1,37 @@
+#!/bin/zsh
+#Installs Aura for AUR Pacakge Management
+user="michael"
+
+if [ "pacman -Q sudo" -ne true ]; then
+	echo "Sudo is required for script completion."
+	echo "Installing now, please add yourself to sudoers"
+	su -c "pacman -S sudo"
+	su -c "visudo"
+fi
+
+if [ "pacman -Q abs" -ne true ]; then
+	sudo pacman -S abs
+fi
+
+if [ "pacman -Q pcre" -ne true ]; then
+	sudo pacman -S pcre	
+fi
+
+if [ "pacman -Q gmp" -ne true ]; then
+	sudo pacman -S gmp
+fi
+
+if [ "pacman -Q wget" -ne true ]; then
+	sudo pacman -S wget
+fi
+
+cd /home/$user
+mkdir auratemp
+cd auratemp
+wget https://aur.archlinux.org/packages/au/aura-bin/aura-bin.tar.gz
+tar -xvf aura-bin.tar.gz
+cd aura-bin
+makepkg
+sudo pacman -U aura-bin*.pkg.tar.xz
+cd /home/$user
+rm -rf auratemp

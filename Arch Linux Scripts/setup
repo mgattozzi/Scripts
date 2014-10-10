@@ -15,13 +15,13 @@ function github(){
 	do
 		git clone git@github.com:mgattozzi/$i.git
 	done
-	#Installs Yaourt and signs repo-ck key
+	#Installs aura and signs repo-ck key
 	cd /home/$user/Github/Scripts/Arch\ Linux\ Scripts
-	sh yaourt
+	./aura
 	sudo sign-key 5EE46C4C
 	#Setup Dotfiles
 	cd /home/$user/Github/dotfiles
-	sh link
+	./link
 	#Setup Awesome
 	if [ "pacman -Q awesome" ]; then
 		cd /home/$user/.config
@@ -52,7 +52,7 @@ function bitbucket(){
 
 	#Setup Config Files
 	cd /home/$user/Bitbucket/config-files
-	sudo sh link
+	sudo ./link
 
 }
 #Script Start
@@ -77,10 +77,11 @@ curl -s http://blackarch.org/strap.sh | sudo sh
 #Install all needed programs
 cd /home/$user/Github/Scripts/Arch\ Linux\ Scripts\
 echo "Installing packages please wait"
-yaourt -S $(cat packages) $aurprograms
+sudo aura -S $(cat packages) 
+sudo aura -Aa $aurprograms
 
 #Remove unwanted files/programs
-sudo pacman -Rns $unwantedprograms
+sudo aura -Rns $unwantedprograms
 
 #Regen grub config
 grub-mkconfig -o /boot/grub/grub.cfg

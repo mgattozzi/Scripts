@@ -37,6 +37,7 @@ aphopper
 apnbf
 arachni
 archey
+ardour
 arduino
 argus
 argus-clients
@@ -52,6 +53,8 @@ asleap
 asp-audit
 athena-ssl-scanner
 atstaketools
+aur-git
+aura-bin
 auto-xor-decryptor
 autoconf
 automake
@@ -147,6 +150,7 @@ chntpw
 chownat
 chrome-decode
 chromefreak
+chromium
 chromium-pepper-flash
 cidr2range
 cintruder
@@ -297,7 +301,6 @@ etherape
 ettercap
 evilgrade
 evilmaid
-exercism-cli
 exiv2
 exploit-db
 extracthosts
@@ -314,7 +317,6 @@ fang
 fbht
 fbpdf-git
 fcrackzip
-feh
 fern-wifi-cracker
 fernmelder
 fgscanner
@@ -504,6 +506,7 @@ irpas
 irssi
 isr-form
 iw
+jack2-dbus
 jad
 javasnoop
 jboss-autopwn
@@ -700,6 +703,7 @@ notspikefile
 nsdtool
 nsec3walker
 ntds-decode
+numlockx
 o-saft
 oat
 obexstress
@@ -829,6 +833,7 @@ rdesktop-brute
 reaver
 rebind
 recon-ng
+recordmydesktop
 recoverjpeg
 recstudio
 redfang
@@ -871,7 +876,6 @@ rxvt-unicode
 s-nail
 safecopy
 sakis3g
-sakura
 sambascan
 samdump2
 samydeluxe
@@ -1191,7 +1195,6 @@ xssscan
 xsssniper
 xssya
 yajl
-yaourt
 yara
 ycrawler
 yersinia

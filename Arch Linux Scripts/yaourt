@@ -1,4 +1,5 @@
 #Gets and installs yaourt for new system or when updating yaourt
+#Currently not being maintained
 echo "Installing required packages";
 sudo pacman -S wget curl yajl diffutils gettext;
 cd /tmp;
