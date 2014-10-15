@@ -35,6 +35,7 @@ androidsniffer
 anontwi
 aphopper
 apnbf
+apvlv
 arachni
 archey
 ardour
@@ -165,6 +166,8 @@ cisco-torch
 cisco5crack
 cisco7crack
 ciscos
+clang
+clang-analyzer
 climber
 clusterd
 cmospwd
@@ -277,7 +280,6 @@ dumb0
 dump1090
 dumpacl
 dumpzilla
-dwb
 e2fsprogs
 eapmd5pass
 easyfuzzer
@@ -315,7 +317,6 @@ fakenetbios
 fakeroot
 fang
 fbht
-fbpdf-git
 fcrackzip
 fern-wifi-cracker
 fernmelder
@@ -580,6 +581,7 @@ loki
 lorcon
 lotophagi
 lsrtunnel
+luakit-git
 luksipc
 lvm2
 lynis
@@ -1031,6 +1033,21 @@ teardown
 tekdefense-automater
 termineter
 texinfo
+texlive-bibtexextra
+texlive-core
+texlive-fontsextra
+texlive-formatsextra
+texlive-games
+texlive-genericextra
+texlive-htmlxml
+texlive-humanities
+texlive-latexextra
+texlive-music
+texlive-pictures
+texlive-plainextra
+texlive-pstricks
+texlive-publishers
+texlive-science
 tftp-bruteforce
 tftp-fuzz
 tftp-proxy
@@ -1108,6 +1125,7 @@ vicious
 vidalia
 videosnarf
 vim
+vim-latexsuite
 vimpager
 vinetto
 viper

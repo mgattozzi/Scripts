@@ -15,10 +15,11 @@ function github(){
 	do
 		git clone git@github.com:mgattozzi/$i.git
 	done
-	#Installs aura and signs repo-ck key
+	#Installs aura and signs repo-ck key and signs Harkell repository key while
+	#we're at it
 	cd /home/$user/Github/Scripts/Arch\ Linux\ Scripts
 	./aura
-	sudo sign-key 5EE46C4C
+	sudo sign-key 5EE46C4C 4209170B
 	#Setup Dotfiles
 	cd /home/$user/Github/dotfiles
 	./link

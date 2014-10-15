@@ -1,7 +1,11 @@
 #!/bin/zsh
 #Installs Aura for AUR Pacakge Management
+
+#To Do:
+#Implement sigterm cleanup
 user="michael"
 
+#Makes sure all dependencies are installed
 if [ "pacman -Q sudo" -ne true ]; then
 	echo "Sudo is required for script completion."
 	echo "Installing now, please add yourself to sudoers"
@@ -24,7 +28,7 @@ fi
 if [ "pacman -Q wget" -ne true ]; then
 	sudo pacman -S wget
 fi
-
+#Installs program
 cd /home/$user
 mkdir auratemp
 cd auratemp
