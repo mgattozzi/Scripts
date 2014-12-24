@@ -72,6 +72,9 @@ fi
 github
 bitbucket
 
+#Setup Directories
+mkdir /home/$user/.bin
+
 #Install Blackarch repository
 curl -s http://blackarch.org/strap.sh | sudo sh
 

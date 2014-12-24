@@ -5,6 +5,7 @@
 abs
 acccheck
 ace
+ack
 acpi
 admid-pack
 adminpagefinder
@@ -22,6 +23,7 @@ airflood
 airgraph-ng
 airoscript
 airpwn
+alex
 allthevhosts
 alsa-utils
 androguard
@@ -126,6 +128,7 @@ burpsuite
 buttinsky
 bvi
 bzip2
+cabal-install
 cadaver
 canari
 cansina
@@ -378,6 +381,7 @@ geoipgen
 getsids
 gettext
 gggooglescan
+ghc
 ghettotooth
 ghost-phisher
 ghost-py
@@ -406,15 +410,18 @@ grokevt
 grub
 gtalk-decode
 gtp-scan
+guvcview
 guymager
 gwcheck
 gwtenum
 gzip
 hackersh
+haddock
 halberd
 halcyon
 hamster
 handle
+happy
 hasere
 hash-identifier
 hashcat
@@ -423,6 +430,7 @@ hasher
 hashid
 hashpump
 hashtag
+haveged
 haystack
 hbad
 hcraft
@@ -484,6 +492,7 @@ inetsim
 inetutils
 infip
 inguma
+intel-ucode
 intercepter-ng
 interrogate
 intersect
@@ -565,13 +574,15 @@ libewf
 libmp4v2
 libphobos
 libpst
-libtool-multilib
+libtool
 licenses
 liffy
 linenum
 linux
+linux-ck-headers
 linux-ck-ivybridge
 linux-exploit-suggester
+linux-headers
 list-urls
 littleblackbox
 lodowep
@@ -647,6 +658,7 @@ mobiusft
 modprobed-db
 modscan
 moloch
+mongodb
 monocle
 mopidy
 mopidy-alsamixer
@@ -680,6 +692,7 @@ netcommander
 netcon
 netctl
 netdiscover
+nethack
 netmap
 netmask
 netreconn
@@ -733,7 +746,6 @@ owabf
 owtf
 p0f
 pack
-package-query
 packerid
 packet-o-matic
 packeth
@@ -1130,6 +1142,7 @@ vimpager
 vinetto
 viper
 vivisect
+vmware-patch
 vnak
 vnc-bypauth
 vncrack
