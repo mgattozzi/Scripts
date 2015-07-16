@@ -1,4 +1,0 @@
-#!/bin/zsh
-#Updates the installed package list dailyZZ
-user="michael"
-pacman -Qqe > /home/$user/Github/Scripts/Arch\ Linux\ Scripts/packages
