@@ -4,5 +4,5 @@
 #!/bin/zsh
 PID=$(ps -ef | grep xmonad | awk '{ print $2 }' | head -n 1)
 FILE=$(ls /proc/$PID/fd | tail -n 1)
-cat /proc/$PID/fd/$FILE > /dev/null
+chronic cat /proc/$PID/fd/$FILE
 
